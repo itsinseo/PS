@@ -7,7 +7,7 @@ class Solution {
             reverse.add(Arrays.stream(i).sum());
         }
 
-        ArrayList<Integer> sum = new ArrayList<>(List.copyOf(reverse));
+        List<Integer> sum = new ArrayList<>(List.copyOf(reverse));
         reverse.sort(Comparator.reverseOrder());
 
         // System.out.println("reverse: " + reverse.toString());
