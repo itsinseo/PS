@@ -13,9 +13,9 @@ public class Main {
         for (int i = 1; i <= n; i++) {
             Arrays.fill(graph[i], Integer.MAX_VALUE);
         }
+
         int[] time = new int[n + 1];
         Arrays.fill(time, Integer.MAX_VALUE);
-        int[] checked = new int[n + 1];
 
         StringTokenizer st;
         for (int i = 0; i < m; i++) {
@@ -36,14 +36,11 @@ public class Main {
 
         while (!queue.isEmpty()) {
             int point = queue.poll();
-            checked[point] = 1;
 
             for (int i = 1; i <= n; i++) {
                 if (graph[point][i] != Integer.MAX_VALUE) {
                     if (time[point] + graph[point][i] < time[i]) {
                         time[i] = time[point] + graph[point][i];
-                        queue.add(i);
-                    } else if (checked[i] == 0) {
                         queue.add(i);
                     }
                 }
