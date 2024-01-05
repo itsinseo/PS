@@ -19,13 +19,15 @@ public class Main {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int answer = Integer.MIN_VALUE;
-        int[] consecutive = new int[n - k + 1];
-        for (int i = 0; i < n - k + 1; i++) {
-            for (int j = 0; j < k; j++) {
-                consecutive[i] += arr[i + j];
-            }
-            answer = Math.max(answer, consecutive[i]);
+        int sum = 0;
+        for (int i = 0; i < k; i++) {
+            sum += arr[i];
+        }
+        int answer = sum;
+        for (int i = 0; i < n - k; i++) {
+            sum -= arr[i];
+            sum += arr[i + k];
+            answer = Math.max(answer, sum);
         }
 
         System.out.println(answer);
